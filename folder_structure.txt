@@ -1,0 +1,80 @@
+For a well-organized folder structure in your FastAPI and PostgreSQL project, you can follow a pattern that separates concerns and makes the project easier to navigate and maintain. Here's a recommended structure:
+
+### Recommended Folder Structure
+
+```
+Inventory_Management_System/
+│
+├── app/
+│   ├── __init__.py
+│   ├── main.py               # FastAPI application entry point
+│   ├── models.py             # SQLAlchemy models
+│   ├── schemas.py            # Pydantic schemas for validation
+│   ├── crud.py               # CRUD operations
+│   ├── database.py           # Database setup and session management
+│   ├── tasks.py              # Celery tasks
+│   └── api/
+│       ├── __init__.py
+│       ├── endpoints/        # Contains all endpoint routers
+│       │   ├── __init__.py
+│       │   ├── products.py   # Product-related endpoints
+│       │   ├── suppliers.py  # Supplier-related endpoints
+│       │   └── orders.py     # Order-related endpoints
+│       └── dependencies.py   # Dependency injection and utilities
+│
+├── alembic/                  # Database migration scripts
+│   ├── versions/             # Migration versions
+│   └── env.py                # Alembic environment configuration
+│
+├── docker/                   # Docker configuration
+│   ├── Dockerfile
+│   └── docker-compose.yml
+│
+├── tests/                    # Test cases
+│   ├── __init__.py
+│   ├── test_main.py          # Tests for main app
+│   ├── test_crud.py          # Tests for CRUD operations
+│   ├── test_endpoints/       # Tests for API endpoints
+│   │   ├── test_products.py
+│   │   ├── test_suppliers.py
+│   │   └── test_orders.py
+│   └── test_celery.py        # Tests for Celery tasks
+│
+├── .env                      # Environment variables
+├── .gitignore                # Git ignore file
+├── requirements.txt          # Project dependencies
+├── alembic.ini               # Alembic configuration file
+└── README.md                 # Project documentation
+```
+
+### Explanation of the Structure
+
+- **`app/`**: Contains the core application code.
+  - **`main.py`**: The entry point for the FastAPI application.
+  - **`models.py`**: SQLAlchemy models for database tables.
+  - **`schemas.py`**: Pydantic schemas for request and response validation.
+  - **`crud.py`**: CRUD operations that interact with the database.
+  - **`database.py`**: Database setup and session management.
+  - **`tasks.py`**: Celery task definitions.
+  - **`api/`**: Organizes API endpoints into separate files for each resource.
+    - **`endpoints/`**: Contains endpoint routers for different resources (e.g., products, suppliers, orders).
+    - **`dependencies.py`**: Includes shared dependencies and utility functions.
+
+- **`alembic/`**: Contains database migration scripts managed by Alembic.
+
+- **`docker/`**: Configuration files for Docker and Docker Compose.
+
+- **`tests/`**: Contains test cases for the application.
+  - **`test_endpoints/`**: Tests for API endpoints organized by resource.
+
+- **`.env`**: Environment variables for configuration.
+
+- **`.gitignore`**: Specifies files and directories to be ignored by Git.
+
+- **`requirements.txt`**: Lists project dependencies.
+
+- **`alembic.ini`**: Configuration file for Alembic.
+
+- **`README.md`**: Project documentation with setup instructions and usage.
+
+This structure keeps your project modular and maintainable, making it easier to navigate and scale as you add more features.
