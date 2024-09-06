@@ -134,4 +134,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - AWS
 - Certbot
 
-For further information or questions, please contact [alemyaobed@gmail.com](mailto:alemyaobed@gmail.com).
+For further information or questions, please contact [EMAIL](mailto:alemyaobed@gmail.com).
